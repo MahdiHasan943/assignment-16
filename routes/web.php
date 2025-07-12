@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\TaskController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +29,6 @@ Route::get('/projects', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+Route::get('/task', [TaskController::class, 'showForm'])->name('task.form');
+Route::post('/task', [TaskController::class, 'submitForm'])->name('task.submit');
+Route::get('/task/confirmation', [TaskController::class, 'confirmation'])->name('task.confirmation');
